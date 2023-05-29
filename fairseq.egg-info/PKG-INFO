@@ -1,0 +1,122 @@
+Metadata-Version: 2.1
+Name: fairseq
+Version: 1.0.0a0+3c5c0c2
+Summary: Facebook AI Research Sequence-to-Sequence Toolkit
+Home-page: https://github.com/pytorch/fairseq
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+## 3M-ASR for End-to-End Speech Recognition
+
+Code for our
+paper "[TriNet: stabilizing self-supervised learning from complete or slow collapse on ASR](https://arxiv.org/abs/2301.00656)".
+
+## Overview
+
+We propose TriNet, which introduces a novel triple-branch architecture for preventing collapse and stabilizing the
+pretraining.
+
+![](figure/model.png)
+
+## Installation
+
++ Pytorch
+
+Please go to https://pytorch.org/ for pytorch installation, Our experiments are carried out under the environment of
+pytorch 1.9 and cuda11.0
+
+- Clone this repo
+
+```shell
+git clone ******
+```
+
++ install fairseq and develop locally:
+
+```shell
+cd ***
+pip install --editable ./
+```
+
+## Get Start
+
+Before the model starts training, you need to train another teacher model first. We provide four training scripts,
+corresponding to the pre-training of the teacher model, the fine-tuning of the teacher model, the pre-training of the
+Trinet, and the fine-tuning of the Trinet. You need to update ```task.data``` and ```task.data_list``` with your data
+directory.
+
++ pretrain for teacher model
+
+```shell
+sh train_data2vec_pretrain.sh
+```
+
++ finetune for teacher model
+
+  Before the fine-tuning training starts, you need to update the ```model.w2v_path``` in the script to the path of the
+  teacher model you trained before.
+
+```shell
+sh train_data2vec_finetune.sh
+```
+
++ pretrain for Trinet
+
+  Before Trinet training starts, the ```teacher_ckpt_path```
+  in ```examples/data2vec/config/audio/pretraining/base_librispeech.yaml``` needs to be changed to the path of the
+  previously trained teacher model.
+
+```shell
+sh train_trinet_pretrain.sh
+```
+
++ finetune for Trinet
+
+```shell
+sh train_trinet_finetune.sh
+```
+
+## Test dataset
+
+The test dataset can be downloaded at this [link]()
+
+## Checkpoint
+
+If you'd like to download our trained models, they are available here:
+
+|     Model     | Download |
+|:-------------:|:--------:|
+| teacher model |  [⬇️]()  |
+|    Trinet     |  [⬇️]()  |
+
+## License
+
+Copyright 2022 Tencent
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+## Citation
+
+```tex
+
+```
+
+
