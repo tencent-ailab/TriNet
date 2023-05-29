@@ -98,8 +98,7 @@ common_eval.path=/path/to/checkpoint.pt decoding.beam=1500 distributed_training.
 ## Performance Benchmark
 
 We evaluate our model on the public Librispeech dev/test sets when training on the LS-100h labeled. WER (%) results are
-listed below. It is worth noting that the data input format of **Wav2vec 2.0** and **Hubert** is **wavform**, and the data input format of *
-*Data2vec** and **TriNet** is **fbank**.
+listed below. It is worth noting that the data input format of **Wav2vec 2.0** and **Hubert** is **wavform**, and the data input format of **Data2vec** and **TriNet** is **fbank**.
 
 | Model       | dev-clean | dev-other | test-clean | test-other |
 |-------------|-----------|-----------|------------|------------|
