@@ -40,7 +40,7 @@ pip install --editable ./
 
 Before the model starts training, you need to train another teacher model first. We provide four training scripts,
 corresponding to the pre-training of the teacher model, the fine-tuning of the teacher model, the pre-training of the
-Trinet, and the fine-tuning of the Trinet. You need to update ```task.data``` and ```task.data_list``` with your data
+TriNet, and the fine-tuning of the TriNet. You need to update ```task.data``` and ```task.data_list``` with your data
 directory.
 
 + pretrain for teacher model
@@ -60,9 +60,8 @@ directory.
 
 + pretrain for Trinet
 
-  Before Trinet training starts, the ```teacher_ckpt_path```
-  in ```examples/data2vec/config/audio/pretraining/base_librispeech.yaml``` needs to be changed to the path of the
-  previously trained teacher model.
+  Before TriNet training starts, you need to update the ```checkpoint.teacher_ckpt_path``` in the script to the path of the
+  teacher model you trained before.
 
   ```shell
   sh shell/train_trinet_pretrain.sh
@@ -70,6 +69,9 @@ directory.
 
 + finetune for Trinet
 
+  Before the fine-tuning training starts, you need to update the ```model.w2v_path``` in the script to the path of the
+  teacher model you trained before.
+  
   ```shell
   sh shell/train_trinet_finetune.sh
   ```

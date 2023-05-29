@@ -28,8 +28,7 @@ task:
 dataset:
   num_workers: 6
   #max_tokens: 3800000
-#  max_tokens: 23000
-  max_tokens: 300
+  max_tokens: 18400 
   skip_invalid_size_inputs_valid_test: true
   validate_interval: 5
   required_batch_size_multiple: 1

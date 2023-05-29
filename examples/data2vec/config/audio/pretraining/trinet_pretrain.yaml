@@ -14,7 +14,7 @@ checkpoint:
   no_epoch_checkpoints: false
   reset_optimizer: false
   reset_dataloader: true
-  teacher_ckpt_path: "/apdcephfs/private_jiapengwang/model/data2vec_finetune/400/checkpoint_best.pt"
+  teacher_ckpt_path: ???
 
 
 task:
@@ -30,8 +30,7 @@ task:
 
 dataset:
   num_workers: 6
-  #max_tokens: 3800000
-  max_tokens: 18400 # 11500*1.6
+  max_tokens: 18400
   skip_invalid_size_inputs_valid_test: true
   validate_interval: 5
   required_batch_size_multiple: 1
